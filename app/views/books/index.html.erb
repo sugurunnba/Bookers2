@@ -1,0 +1,21 @@
+<%= render 'layouts/list', book: Book.new, user: @user %>
+
+<h1>Books</h1>
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <td>Title</td>
+      <td>Opinion</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <td></td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

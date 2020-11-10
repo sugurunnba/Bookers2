@@ -1,4 +1,11 @@
-<%= render 'layouts/list', book: Book.new, user: @user %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= render 'layouts/list', book: @book, user: current_user %>
 
 <h1>Books</h1>
 <table>
@@ -12,10 +19,16 @@
   <tbody>
   <% @books.each do |book| %>
     <tr>
-      <td></td>
-      <td><%= book.title %></td>
+      <td><%= attachment_image_tag book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></td>
+      <td>
+        <%= link_to book_path(book) do %>
+          <%= book.title %>
+        <% end %>
+      </td>
       <td><%= book.body %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<p>CopyRight Infratop.inc</p>

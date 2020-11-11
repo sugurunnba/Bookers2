@@ -1,25 +1,32 @@
 <%= flash[:notice] %>
-
-<%= render 'layouts/list', book: Book.new, user: @user %>
-
-<h1>Book detail</h1>
-<table>
-  <tr>
-    <td>
-      <%= link_to user_path(@user) do %>
-        <p><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></p>
-        <p><%= @user.name %></p>
-      <% end %>
-      </td>
-    <td><%= @book.title %></td>
-    <td><%= @book.body %></td>
-    <td>
-      <% if @book.user == current_user %>
-        <%= link_to "Edit", edit_book_path %>
-        <%= link_to "Destroy", book_path(@book), method: :delete %>
-      <% end %>
-    </td>
-  </tr>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render 'layouts/list', book: Book.new, user: @user %>
+    </div>
+    
+    <div class="col-lg-8">
+      <h1>Book detail</h1>
+      <table class="table table-striped">
+        <tr>
+          <td>
+            <%= link_to user_path(@user) do %>
+              <p><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></p>
+              <p><%= @user.name %></p>
+            <% end %>
+            </td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <td>
+            <% if @book.user == current_user %>
+              <%= link_to "Edit", edit_book_path %>
+              <%= link_to "Destroy", book_path(@book), method: :delete %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 
 <p>CopyRight Infratop.inc</p>

@@ -1,29 +1,38 @@
 <%= flash[:notice] %>
 
-<%= render 'layouts/list', book: Book.new, user: current_user %>
+<div class="container">
+  <div class="row">
 
+    <div class="col-lg-4">
+      <%= render 'layouts/list', book: Book.new, user: current_user %>
+    </div>
 
-<h1>Books</h1>
-<table>
-  <thead>
-    <tr>
-      <td></td>
-      <td>Title</td>
-      <td>Opinion</td>
-    </tr>
-  </thead>
-  <tbody>
-  <% @books.each do |book| %>
-    <tr>
-      <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></td>
-      <td>
-        <%= link_to book_path(book) do %>
-          <%= book.title %></td>
-        <% end %>
-      <td><%= book.body %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+    <div class="col-lg-8">
+      <h1>Books</h1>
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Title</td>
+          <td>Opinion</td>
+        </tr>
+      </thead>
+      <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></td>
+          <td>
+            <%= link_to book_path(book) do %>
+              <%= book.title %></td>
+            <% end %>
+          <td><%= book.body %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+
+  </div>
+</div>
 
 <p>CopyRight Infratop.inc</p>

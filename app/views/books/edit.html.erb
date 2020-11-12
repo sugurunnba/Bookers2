@@ -1,21 +1,30 @@
-<h1>Editing Book</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
+      <br>
+      <h1>Editing Book</h1>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>error prohibited this obj from being saved:
-  <% @book.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-<% end %>
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>error prohibited this obj from being saved:
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
 
-<%= form_with model:@book, local:true do |f| %>
-  <h4>Title</h4>
-  <p><%= f.text_field :title %></p>
-  <h4>Opinion</h4>
-  <p><%= f.text_area :body %></p>
-  <p><%= f.submit 'Update Book' %></p>
-<% end %>
+      <%= form_with model:@book, local:true do |f| %>
+        <h4>Title</h4>
+        <p><%= f.text_field :title %></p>
+        <h4>Opinion</h4>
+        <p><%= f.text_area :body %></p>
+        <p><%= f.submit 'Update Book' %></p>
+      <% end %>
 
-<%= link_to "Show", book_path(@book) %>
-<%= link_to "Back", books_path %>
+      <%= link_to "Show", book_path(@book) %>
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
+</div>
 
-<p>CopyRight Infratop.inc</p>
+
+
+<p style="text-align:center;">CopyRight Infratop.inc</p>

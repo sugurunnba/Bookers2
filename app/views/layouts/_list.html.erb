@@ -1,3 +1,4 @@
+<br>
 <div class="container">
   <div class="row">
     <h1>User info</h1>
@@ -14,11 +15,11 @@
         <td><%= user.introduction %></td>
       </tr>
       <tr>
-        <td>
-          <%= link_to edit_user_path(user) do %>
-            <i class="fa fa-cogs"></i>
-          <% end %>
-          </td>
+        <td style="text-align:center;">
+
+          <%= link_to "", edit_user_path(user), class: "fas fa-user-cog" %>
+
+        </td>
       </tr>
     </table>
   </div>

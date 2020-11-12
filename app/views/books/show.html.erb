@@ -1,26 +1,30 @@
 <%= flash[:notice] %>
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
-      <%= render 'layouts/list', book: Book.new, user: @user %>
+    <div class="col-md-3">
+      <%= render 'layouts/list', book: Book.new, user: @book.user %>
     </div>
-    
-    <div class="col-lg-8">
+
+    <div class="col-md-8 offset-md-1">
       <h1>Book detail</h1>
       <table class="table table-striped">
         <tr>
           <td>
-            <%= link_to user_path(@user) do %>
-              <p><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></p>
-              <p><%= @user.name %></p>
+            <%= link_to user_path(@book.user) do %>
+              <p><%= attachment_image_tag @book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></p>
+              <p><%= @book.user.name %></p>
             <% end %>
             </td>
-          <td><%= @book.title %></td>
+          <td>
+            <%= link_to book_path(@book) do %>
+              <%= @book.title %>
+            <% end %>
+          </td>
           <td><%= @book.body %></td>
           <td>
             <% if @book.user == current_user %>
               <%= link_to "Edit", edit_book_path %>
-              <%= link_to "Destroy", book_path(@book), method: :delete %>
+              <%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に削除しますか？"}%>
             <% end %>
           </td>
         </tr>
@@ -28,5 +32,7 @@
     </div>
   </div>
 </div>
-
-<p>CopyRight Infratop.inc</p>
+<br>
+<br>
+<br>
+<p style="text-align:center;">CopyRight Infratop.inc</p>

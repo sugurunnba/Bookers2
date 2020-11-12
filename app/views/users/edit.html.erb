@@ -1,20 +1,29 @@
-<h1>User info</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>User info</h1>
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %>error prohibited this obj from being saved:
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
 
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>error prohibited this obj from being saved:
-  <% @user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-<% end %>
+      <%= form_with model:@user, local:true do |f| %>
+        <p>Name</p>
+        <%= f.text_field :name %>
+        <p>Image</p>
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+        <p>Introduction<p>
+        <%= f.text_area :introduction %>
+        <p><%= f.submit 'Update User' %></p>
+      <% end %>
+      <p style="text-align:center;">CopyRight Infratop.inc</p>
+    </div>
+  </div>
+</div>
 
-<%= form_with model:@user, local:true do |f| %>
-  <h4>Name</h4>
-  <%= f.text_field :name %>
-  <h4>Image</h4>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-  <h4>Introduction</h4>
-  <%= f.text_area :introduction %>
-  <p><%= f.submit 'Update User' %></p>
-<% end %>
 
-<p>CopyRight Infratop.inc</p>
+
+
+

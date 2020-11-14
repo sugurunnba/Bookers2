@@ -20,44 +20,44 @@
             <ul class="navbar-nav mr-auto">
                 <% if user_signed_in? %>
                     <li class="nav-item">
-                        <%= link_to user_path(current_user.id), class: "nav-link fas fa-home" do %>
-                            Home
+                        <%= link_to user_path(current_user.id) do %>
+                            <i class="nav-link fas fa-home">Home</i>
                         <% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to users_path, class: "nav-link fas fa-users" do %>
-                            Users
+                        <%= link_to users_path do %>
+                            <i class="nav-link fas fa-users">Users</i>
                         <% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to books_path, class: "nav-link fas fa-book-open" do %>
-                            Books
+                        <%= link_to books_path do %>
+                            <i class="nav-link fas fa-book-open">Books</i>
                         <% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to destroy_user_session_path, class: "nav-link fas fa-sign-out-alt", method: :delete do %>
-                            logout
+                        <%= link_to destroy_user_session_path, method: :delete do %>
+                            <i class="nav-link fas fa-sign-out-alt">logout</i>
                         <% end %>
                     </li>
                 <% else %>
                     <li class="nav-item">
-                        <%= link_to root_path, class: "nav-link fas fa-home" do %>
-                            Home
+                        <%= link_to root_path do %>
+                            <i class="nav-link fas fa-home">Home</i>
                         <% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to homes_about_path, class: "nav-link fas fa-link" do %>
-                            About
+                        <%= link_to homes_about_path do %>
+                            <i class="nav-link fas fa-link">About</i>
                         <% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to new_user_registration_path, class: "nav-link fas fa-user-plus" do %>
-                            sign up
+                        <%= link_to new_user_registration_path do %>
+                            <i class="nav-link fas fa-user-plus">sign up</i>
                         <% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to new_user_session_path, class: "nav-link fas fa-sign-in-alt" do %>
-                            login
+                        <%= link_to new_user_session_path do %>
+                            <i class="nav-link fas fa-sign-in-alt">login</i>
                         <% end %>
                     </li>
                 <% end %>

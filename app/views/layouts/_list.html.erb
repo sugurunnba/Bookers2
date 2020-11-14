@@ -16,9 +16,9 @@
       </tr>
       <tr>
         <td style="text-align:center;">
-
-          <%= link_to "", edit_user_path(user), class: "fas fa-user-cog" %>
-
+          <%= link_to edit_user_path(user) do %>
+              <i class="nav-link fas fa-user-cog"></i>
+          <% end %>
         </td>
       </tr>
     </table>
